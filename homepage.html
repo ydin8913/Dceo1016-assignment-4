@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" media="screen and (min-width:200px) and (max-width:750px)" href="./css/GudienceP.css">
+		<link rel="stylesheet" media="screen and (min-width:750px) and (max-width:13140px)" href="./css/Gudience.css">
+		<link rel="stylesheet" type="text/css" href="./css/homepage.css"/>
+		<title>homepage</title>
+	</head>
+	<body>
+		<!-- <div class="container"> -->
+		<div id="topPc" class="topBox">
+			<div class="meetBox">
+				<p class="top-meet">MEET CATS</p>
+				<p class="top-help">HELP　US</p>
+				<p class="top-guid">GUIDENCE</p>
+				<p class="top-home">HOME</p>
+				<p class="top-more">MORE ABOUT US</p>
+				<img src="./img/logo1.png">
+			</div>
+			<div class="topR">
+				<p>Campus Cats Coalition</p>
+			</div>
+		</div>
+		<div id="topMobiel" class="topBox">
+			<div class="topR">
+				<p>Campus Cats Coalition</p>
+			</div>
+			<div class="meetBox">
+				<div>
+					<p class="top-home">HOME</p>
+					<p class="top-meet">MEET CATS</p>
+					<p class="top-more">MORE ABOUT US</p>
+					<p class="top-help">HELP　US</p>
+					<p class="top-guid">GUIDENCE</p>
+				</div>
+				<img src="./img/logo1.png">
+			</div>
+		</div>
+		<div class="conBoxC homeBox">
+			<img src="./img/homeMan.png">
+			<div class="conKuang kuangC homeIn">
+				<h2>Introduction</h2>
+				<p>The campus Cat coalitiou is allvol-unteer uoи-profit T NR cat rescueorganizatiou dedicated to carina,rescue and
+					humave management ofhomeless cats living on thе UNЅW Sydney campus.</p>
+			</div>
+		</div>
+		<div class="bannerBox">
+			<!-- banner图循环 -->
+			<div class="banenr-center">
+				<ul class='center'>
+					<!-- <li id="one">1
+					</li>
+					<li>2</li>
+					<li>3</li> -->
+					<li id="one">
+						<img src="./img/homeBanner1.png">
+					</li>
+					<li>
+						<img src="./img/homeBanner2.png">
+					</li>
+					<li>
+						<img src="./img/homeBanner3.png">
+					</li>
+					<li>
+						<img src="./img/homeBanner4.png">
+					</li>
+					<li>
+						<img src="./img/homeBanner5.png">
+					</li>
+					<li>
+						<img src="./img/homeBanner6.png">
+					</li>
+				</ul>
+				
+			</div>
+			<ul class="centers">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="lianBox">
+			<p id="lianTitle">Contect infomation</p>
+			<div>
+				<p id="contectBtn">Contect us</p>
+				<p>Email: unswcampuscats@yahoo.com</p>
+				<p>Sending massage HERE</p>
+				<p class="address">Address:</p>
+				<p>Campus Cats NSW PO Box 6315 UNSW Sydney NSW 1466 AUSTRALIA</p>
+			</div>
+		</div>
+		<div class="liaoBox" id="liaoBoxI">
+			<div class="liaoConBox">
+
+				<div class="liaoTop" id="closeBtn">
+					<img src="./img/suoxiao.png">
+					<img src="./img/closeIcon.png">
+				</div>
+				<div id="liaoCon">
+
+				</div>
+				<div class="liaoSend">
+					<input type="text" name="" id="contact" value="" />
+					<img id="toSend" src="./img/sendIcon.png" />
+				</div>
+			</div>
+		</div>
+		<!-- </div> -->
+		<script src="./js/animate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/carousel.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function fnInitScreen() {
+				var html = document.getElementsByTagName("html")[0];
+				var width = window.innerWidth;
+				var font_size = 0;
+				font_size = 100 / 1200 * width; //1200 设计图比例
+				html.style.fontSize = font_size + "px";
+			}
+
+			function renderMsg(data) {
+
+				let msg = '';
+				data.map((item) => {
+					if (item.fromN == 'other') {
+						str = `<div class="leftMsg">
+							<img src="./img/logo1.png">
+							<div>${item.con}</div>
+						</div>`
+					} else {
+						str = `<div class="rightMsg">
+							<div>${item.con}</div>
+						</div>`
+					}
+					msg += str;
+				})
+				let box = document.getElementById('liaoCon');
+				box.innerHTML = msg;
+			}
+			fnInitScreen();
+			let data = [{
+				fromN: 'other',
+				con: 'Hello'
+			}, ]
+			renderMsg(data);
+			window.onresize = function() {
+				fnInitScreen();
+			}
+			let liaoBoxI = document.getElementById('liaoBoxI');
+			let sendBtn = document.getElementById('toSend');
+			sendBtn.addEventListener('click', () => {
+				let inputB = document.getElementById('contact');
+				let value = inputB.value;
+				data.push({
+					fromN: 'me',
+					con: value
+				})
+				data.push({
+					fromN: 'other',
+					con: 'Thanks'
+				})
+				renderMsg(data);
+				inputB.value = '';
+			})
+			let closeBtn = document.getElementById('closeBtn');
+			closeBtn.addEventListener('click', () => {
+				liaoBoxI.style.display = 'none';
+			})
+			let contectBtn = document.getElementById('contectBtn');
+			contectBtn.addEventListener('click', () => {
+				liaoBoxI.style.display = 'flex';
+			})
+		</script>
+	</body>
+</html>

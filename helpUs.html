@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" media="screen and (min-width:200px) and (max-width:750px)" href="./css/GudienceP.css">
+		<link rel="stylesheet" media="screen and (min-width:750px) and (max-width:13140px)" href="./css/Gudience.css">
+		<title>helpUs</title>
+	</head>
+	<body>
+		<!-- <div class="container"> -->
+		<div id="topPc" class="topBox">
+			<div class="meetBox">
+				<p class="top-meet">MEET CATS</p>
+				<p class="top-help">HELP　US</p>
+				<p class="top-guid">GUIDENCE</p>
+				<p class="top-home">HOME</p>
+				<p class="top-more">MORE ABOUT US</p>
+				<img src="./img/logo1.png">
+			</div>
+			<div class="topR">
+				<p>Campus Cats Coalition</p>
+			</div>
+		</div>
+		<div id="topMobiel" class="topBox">
+			<div class="topR">
+				<p>Campus Cats Coalition</p>
+			</div>
+			<div class="meetBox">
+				<div>
+					<p class="top-home">HOME</p>
+					<p class="top-meet">MEET CATS</p>
+					<p class="top-more">MORE ABOUT US</p>
+					<p class="top-help">HELP　US</p>
+					<p class="top-guid">GUIDENCE</p>
+				</div>
+				<img src="./img/logo1.png">
+			</div>
+		</div>
+		<div class="conBox">
+			<h2>How could you help us</h2>
+			<div class="helpUs">
+				<img src="img/helpUsCat.png">
+				<div class="conKuang kuangC">
+					<p>Donate money or goods</p>
+					<p>Money transfer:</p>
+					<p>Commonwealth Bank</p>
+					<p>Branch: University of New South Wales</p>
+					<p>BSB: 062 - 303</p>
+					<p>Account number: 10634176</p>
+					<p>Account name: Campus Cats NSW</p>
+					<p>Mail a cheque payable tolampus Cats NSW</p>
+					<p>Address:</p>
+					<p>Campus Cats NSWPO Box 6315UNSW SydneyNSW 1466AUSTRALIA</p>
+				</div>
+			</div>
+		</div>
+		<div class="conBox adoption">
+			<h2>Adoption & Fostering</h2>
+			<img src="./img/helpUsMen.png">
+			<div class="kuangC">
+				<p>NEVER TAKE A CAMPUS CAT HOME without our knowledge.</p>
+				<p>From time to time, we may need to find temporary or permanenthomes for cats or kittens on campus. If you would
+					like to registeryour interest in adopting or fostering a campus cat, please contact us by</p>
+				<p>email: unswcampuscats@yahoo.com</p>
+			</div>
+		</div>
+		<div class="lianBox">
+			<p id="lianTitle">Contect infomation</p>
+			<div>
+				<p id="contectBtn">Contect us</p>
+				<p>Email: unswcampuscats@yahoo.com</p>
+				<p>Sending massage HERE</p>
+				<p class="address">Address:</p>
+				<p>Campus Cats NSW PO Box 6315 UNSW Sydney NSW 1466 AUSTRALIA</p>
+			</div>
+		</div>
+		<div class="liaoBox" id="liaoBoxI">
+			<div class="liaoConBox">
+
+				<div class="liaoTop" id="closeBtn">
+					<img src="./img/suoxiao.png">
+					<img src="./img/closeIcon.png">
+				</div>
+				<div id="liaoCon">
+
+				</div>
+				<div class="liaoSend">
+					<input type="text" name="" id="contact" value="" />
+					<img id="toSend" src="./img/sendIcon.png" />
+				</div>
+			</div>
+		</div>
+		<!-- </div> -->
+		<script type="text/javascript">
+			function fnInitScreen() {
+				var html = document.getElementsByTagName("html")[0];
+				var width = window.innerWidth;
+				var font_size = 0;
+				font_size = 100 / 1200 * width; //1200 设计图比例
+				html.style.fontSize = font_size + "px";
+			}
+
+			function renderMsg(data) {
+
+				let msg = '';
+				data.map((item) => {
+					if (item.fromN == 'other') {
+						str = `<div class="leftMsg">
+							<img src="./img/logo1.png">
+							<div>${item.con}</div>
+						</div>`
+					} else {
+						str = `<div class="rightMsg">
+							<div>${item.con}</div>
+						</div>`
+					}
+					msg += str;
+				})
+				let box = document.getElementById('liaoCon');
+				box.innerHTML = msg;
+			}
+			fnInitScreen();
+			let data = [{
+				fromN: 'other',
+				con: 'Hello'
+			}, ]
+			renderMsg(data);
+			window.onresize = function() {
+				fnInitScreen();
+			}
+			let liaoBoxI = document.getElementById('liaoBoxI');
+			let sendBtn = document.getElementById('toSend');
+			sendBtn.addEventListener('click', () => {
+				let inputB = document.getElementById('contact');
+				let value = inputB.value;
+				data.push({
+					fromN: 'me',
+					con: value
+				})
+				data.push({
+					fromN: 'other',
+					con: 'Thanks'
+				})
+				renderMsg(data);
+				inputB.value = '';
+			})
+			let closeBtn = document.getElementById('closeBtn');
+			closeBtn.addEventListener('click', () => {
+				liaoBoxI.style.display = 'none';
+			})
+			let contectBtn = document.getElementById('contectBtn');
+			contectBtn.addEventListener('click', () => {
+				liaoBoxI.style.display = 'flex';
+			})
+		</script>
+	</body>
+</html>

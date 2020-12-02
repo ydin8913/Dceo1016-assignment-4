@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" media="screen and (min-width:200px) and (max-width:750px)" href="./css/GudienceP.css">
+		<link rel="stylesheet" media="screen and (min-width:750px) and (max-width:13140px)" href="./css/Gudience.css">
+		<title>meetCats</title>
+	</head>
+	<body>
+		<!-- <div class="container"> -->
+			<div id="topPc" class="topBox">
+				<div class="meetBox">
+					<p class="top-meet">MEET CATS</p>
+					<p class="top-help">HELP　US</p>
+					<p class="top-guid">GUIDENCE</p>
+					<p class="top-home">HOME</p>
+					<p class="top-more">MORE ABOUT US</p>
+					<img src="./img/logo1.png">
+				</div>
+				<div class="topR">
+					<p>Campus Cats Coalition</p>
+				</div>
+			</div>
+			<div id="topMobiel" class="topBox">
+				<div class="topR">
+					<p>Campus Cats Coalition</p>
+				</div>
+				<div class="meetBox">
+					<div>
+						<p class="top-home">HOME</p>
+						<p class="top-meet">MEET CATS</p>
+						<p class="top-more">MORE ABOUT US</p>
+						<p class="top-help">HELP　US</p>
+						<p class="top-guid">GUIDENCE</p>
+					</div>
+					<img src="./img/logo1.png">
+				</div>
+			</div>
+			<div class="conBoxC">
+				<div class="conKuang kuangC">
+					<p>Companion Animals Act & NSW Companion</p>
+					<p>Animal Register</p>
+					<p>The Companion Animals Act was passed by the NSW Government in 1998. Under this Act all kittens born after 1
+						July
+						1999 and kept as pets must be permanently identified through micro-chipping by12 weeks of age, and must be
+						regis-tered through alocal council on the NSW Companion Animals Register by 6 months of age. Cats born earlier
+						who
+						change ownership must also be chipped and registered. All UNSW campus cats have been microchipped and registered
+						as owned by CCNSW through Randwick City Council</p>
+				</div>
+				<img src="./img/whiteCat.png">
+			</div>
+			<div class="lianBox">
+				<p id="lianTitle">Contect infomation</p>
+				<div>
+					<p id="contectBtn">Contect us</p>
+					<p>Email: unswcampuscats@yahoo.com</p>
+					<p>Sending massage HERE</p>
+					<p class="address">Address:</p>
+					<p>Campus Cats NSW PO Box 6315 UNSW Sydney NSW 1466 AUSTRALIA</p>
+				</div>
+			</div>
+			<div class="liaoBox" id="liaoBoxI">
+				<div class="liaoConBox">
+					
+				<div class="liaoTop" id="closeBtn">
+					<img src="./img/suoxiao.png" >
+					<img src="./img/closeIcon.png" >
+				</div>
+				<div id="liaoCon">
+					
+				</div>
+				<div class="liaoSend">
+					<input type="text" name="" id="contact" value="" />
+					<img id="toSend" src="./img/sendIcon.png" />
+				</div>
+				</div>
+			</div>
+		<!-- </div> -->
+		<script type="text/javascript">
+			function fnInitScreen() {
+				var html = document.getElementsByTagName("html")[0];
+				var width = window.innerWidth;
+				var font_size = 0;
+				font_size = 100 / 1200 * width; //1200 设计图比例
+				html.style.fontSize = font_size + "px";
+			}
+			function renderMsg(data){
+				
+				let msg='';
+				data.map((item)=>{
+					if(item.fromN=='other'){
+						str=`<div class="leftMsg">
+							<img src="./img/logo1.png">
+							<div>${item.con}</div>
+						</div>`
+					}else{
+						str=`<div class="rightMsg">
+							<div>${item.con}</div>
+						</div>`
+					}
+					msg+=str;
+				})
+				let box = document.getElementById('liaoCon');
+				box.innerHTML=msg;
+			}
+			fnInitScreen();
+			let data=[
+				{fromN:'other',con:'Hello'},
+			]
+			renderMsg(data);
+			window.onresize = function() {
+				fnInitScreen();
+			}
+			let liaoBoxI=document.getElementById('liaoBoxI');
+			let sendBtn = document.getElementById('toSend');
+			sendBtn.addEventListener('click',()=>{
+				let inputB = document.getElementById('contact');
+				let value=inputB.value;
+				data.push({
+					fromN:'me',
+					con: value
+				})
+				data.push({
+					fromN:'other',
+					con:'Thanks'
+				})
+				renderMsg(data);
+				inputB.value='';
+			})
+			let closeBtn = document.getElementById('closeBtn');
+			closeBtn.addEventListener('click',()=>{
+				liaoBoxI.style.display='none';
+			})
+			let contectBtn=document.getElementById('contectBtn');
+			contectBtn.addEventListener('click',()=>{
+				liaoBoxI.style.display='flex';
+			})
+		</script>
+	</body>
+</html>

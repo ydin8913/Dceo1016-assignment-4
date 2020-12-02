@@ -1,0 +1,203 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	/* display: flex; */
+	background: #FFF0CE;
+	box-sizing: border-box;
+	/* font-family: "bradley hand itc"; */
+}
+.conBox{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 60%;
+	margin: 0.6rem auto;
+}
+.title{
+	font-size: .24rem;
+	color: #000;
+	font-weight: normal;
+	margin-bottom: .7rem;
+}
+.conBox .sec_title{
+	font-size: .2rem;
+	margin-bottom: .3rem;
+}
+.title-red{
+	color: #E95464;
+	font-size: .19rem;
+	line-height: 1.5;
+	text-align: center;
+	margin-bottom: .4rem;
+}
+.title_box{
+	font-size: .16rem;
+	color: #333;
+	text-align: center;
+	line-height: 1.5;
+}
+.title_box_a{
+	font-size: .17rem;
+	line-height: 1.8;
+}
+.conKuangBox{
+	display: flex;
+	justify-content: space-between;
+	margin-top: .5rem;
+}
+.conBoxT{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 .8rem;
+	margin-top: .3rem;
+}
+.conKuang{
+	font-size: .16rem;
+	color: #333;
+	padding: 0 0.1rem;
+	width: 45%;
+	text-align: center;
+	line-height: 1.6;
+	border: .01rem solid #fff;
+	border-radius: .3rem;
+	box-sizing: border-box;
+}
+.kuang-q{
+	font-weight: bold;
+	color: #000;
+	font-size: .17rem;
+	margin-top: .3rem;
+}
+.conBoxT>div{
+	width: 45%;
+}
+.red-box img{
+	width: 100%;
+	height: auto;
+}
+.red-box-text{
+	width: 100%;
+	padding: 0.08rem 0.1rem;
+	font-size: .16rem;
+	text-align: center;
+}
+.red-box-text p{
+	margin-bottom: .3rem;
+}
+.onlyText-center{
+	font-size: .16rem;
+	text-align: center;
+}
+.onlyText-center p{
+	margin-bottom: .3rem;
+}
+.imgLR-box{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: .16rem;
+}
+.imgLR-box img{
+	width: 55%;
+	height: auto;
+}
+.imgLR-box>div{
+	width:40%;
+}
+.imgLR-box>div p{
+	margin-top:.3rem ;
+}
+.imgLR-box>div p:first-child{
+	margin-top: 0;
+}
+
+.imgLR-box-top{
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.imgLR-box-top-two img{
+	width: 48%;
+	height: auto;
+}
+.imgLR-box-top-three img{
+	width: 32%;
+	height: auto;
+}
+.imgTB-box{
+	width: 48%;
+}
+.imgTB-box img{
+	width: 100%;
+	height: auto;
+}
+.imgTB-box p{
+	font-size: .14rem;
+	margin-top: .3rem;
+}
+.onlyText{
+	font-size: .16rem;
+	line-height: 2;
+	margin-top: .3rem;
+}
+.text-title{
+	margin-bottom: .15rem;
+}
+.imgLR-box-bottom{
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+.last-box{
+	width: 60%;
+	margin: 0.6rem auto;
+}
+.last-box p{
+	line-height: 1.5;
+	font-size: .16rem;
+	margin-bottom: .2rem;
+}
+.tbAll{
+	width: 100%;
+}
+.tbAll img{
+	width: 100%;
+}
+.newImgBox{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 .8rem;
+	margin-top: .3rem;
+	flex-wrap: wrap;
+}
+.newImgBox>div{
+	width: 48%;
+	border: .01rem solid #fff;
+	padding: 0.2rem;
+	box-sizing: border-box;
+	margin-top: .3rem;
+}
+.newImgBox>div>p{
+	font-size: .16rem;
+	margin-bottom: .08rem;
+	text-align: center;
+}
+.newImgBox>div>div{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.newImgBox img{
+	width: 48%;
+	height: auto;
+}
+.phone-p{
+	display: none;
+}
+.conBoxT-r{
+	display: block;
+}
